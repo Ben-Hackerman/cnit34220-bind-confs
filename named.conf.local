@@ -1,0 +1,27 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+// include "/etc/bind/zones.rfc1918";
+
+//listen-on port 53 { localhost; 44.102.132.11; };
+//allow-query { any; };
+//forwarders { 44.2.2.44; 44.2.2.45; };
+//recursion yes;
+
+zone "acme32.com" {
+	type master;
+	file "/etc/bind/zones/forward.acme32.com";
+};
+
+zone "132.102.44.in-addr.arpa" {
+	type master;
+	file "/etc/bind/zones/reverse.acme32.com";
+};
+
+zone "168.192.in-addr.arpa" {
+        type master;
+        file "/etc/bind/zones/reverse.acme32.com";
+};
